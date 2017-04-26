@@ -55,11 +55,11 @@ pid_t sys_get_zombie_pid(int n){
 	int Ncount=0;
 	list_for_each(CurNode,curr_list){
 		if(n==Ncount){
-			return list_entry(CurNode,pid_t,**********);
+			return list_entry(CurNode,task_struct,zombies_list);
 		}
 		Ncount++;
 	}
-		return list_entry(curr_list,pid_t,**********);
+		return list_entry(CurNode,task_struct,zombies_list);
 	}
 
 
@@ -119,12 +119,13 @@ int sys_give_up_zombies(int n, pid_t adopter_pid){
 }
 
 list_t* find_pid_node(pid_t pid){
+	task_struct *curr_task;
 	curr_task=find_task_by_pid(pid);
 	list_t *curr_list;
 	curr_list = &(curr_task->zombies_list):
 
 	list_for_each(CurNode,curr_list){
-			if(pid==list_entry(CurNode,pid_t,**********));
+			if(pid==list_entry(CurNode,task_struct,zombies_list));
 			return CurNode;
 	}
 	return curr_list;
