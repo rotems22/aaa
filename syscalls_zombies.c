@@ -125,7 +125,7 @@ list_t* find_pid_node(pid_t pid){
 	curr_list = &(curr_task->zombies_list):
 
 	list_for_each(CurNode,curr_list){
-			if(pid==list_entry(CurNode,task_struct,zombies_list));
+			if(pid==list_entry(CurNode,task_struct,pid_t));
 			return CurNode;
 	}
 	return curr_list;
